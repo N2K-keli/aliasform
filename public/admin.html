@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Tableau de bord – Collecte</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="__BASE_PATH__/assets/app.css">
+  <script id="app-config" type="application/json">__CONFIG__</script>
+  <script type="module" src="__BASE_PATH__/assets/admin.js"></script>
+</head>
+<body class="min-h-screen bg-stone-100 text-stone-900 antialiased">
+  <main class="mx-auto w-full max-w-7xl px-4 py-6 sm:py-8">
+    <header class="flex flex-wrap items-end justify-between gap-4">
+      <div>
+        <h1 class="text-2xl font-bold">Tableau de bord</h1>
+        <p class="mt-1 text-sm text-stone-600">Réponses collectées (voix et traductions écrites)</p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <a id="export-csv" href="#" class="inline-flex h-11 items-center rounded-lg bg-emerald-700 px-4 text-sm font-semibold text-white hover:bg-emerald-800">Exporter en CSV</a>
+        <a id="export-zip" href="#" class="inline-flex h-11 items-center rounded-lg border-2 border-emerald-700 bg-white px-4 text-sm font-semibold text-emerald-800 hover:bg-emerald-50">Télécharger l'audio (ZIP)</a>
+      </div>
+    </header>
+
+    <section id="stats" class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3" aria-label="Statistiques"></section>
+
+    <section class="mt-6 rounded-xl bg-white p-4 shadow-sm ring-1 ring-stone-200" aria-label="Filtres">
+      <form id="filters" class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_2fr_auto_auto] lg:items-end">
+        <label class="block text-sm font-medium text-stone-700">Langue
+          <select id="f-language" class="mt-1 block h-11 w-full rounded-lg border border-stone-300 bg-white px-2 text-base">
+            <option value="">Toutes les langues</option>
+          </select>
+        </label>
+        <label class="block text-sm font-medium text-stone-700">Catégorie
+          <select id="f-category" class="mt-1 block h-11 w-full rounded-lg border border-stone-300 bg-white px-2 text-base">
+            <option value="">Toutes les catégories</option>
+          </select>
+        </label>
+        <label class="block text-sm font-medium text-stone-700">Mot français
+          <input id="f-q" type="search" placeholder="Rechercher un mot…" autocomplete="off"
+                 class="mt-1 block h-11 w-full rounded-lg border border-stone-300 bg-white px-3 text-base">
+        </label>
+        <label class="flex h-11 items-center gap-2 text-sm font-medium text-stone-700">
+          <input id="f-audio" type="checkbox" class="h-5 w-5 accent-emerald-700"> Avec audio
+        </label>
+        <label class="flex h-11 items-center gap-2 text-sm font-medium text-stone-700">
+          <input id="f-text" type="checkbox" class="h-5 w-5 accent-emerald-700"> Avec texte
+        </label>
+      </form>
+    </section>
+
+    <section class="mt-6 rounded-xl bg-white shadow-sm ring-1 ring-stone-200" aria-label="Réponses">
+      <div class="flex flex-wrap items-center justify-between gap-2 border-b border-stone-200 px-4 py-3">
+        <p id="total" class="text-sm font-medium text-stone-700"></p>
+        <p id="error" class="text-sm font-medium text-red-700" aria-live="polite"></p>
+      </div>
+      <div class="w-full overflow-x-auto">
+        <table class="w-full min-w-[64rem] text-left text-sm">
+          <thead class="bg-stone-50 text-xs uppercase tracking-wide text-stone-600">
+            <tr>
+              <th class="px-4 py-3 font-semibold">ID</th>
+              <th class="px-4 py-3 font-semibold">Catégorie</th>
+              <th class="px-4 py-3 font-semibold">Mot français</th>
+              <th class="px-4 py-3 font-semibold">Langue</th>
+              <th class="px-4 py-3 font-semibold">E-mail</th>
+              <th class="px-4 py-3 font-semibold">Audio</th>
+              <th class="px-4 py-3 font-semibold">Texte</th>
+              <th class="px-4 py-3 font-semibold">Date</th>
+            </tr>
+          </thead>
+          <tbody id="rows" class="divide-y divide-stone-100"></tbody>
+        </table>
+      </div>
+      <p id="empty" hidden class="px-4 py-10 text-center text-stone-600">Aucune réponse pour le moment.</p>
+      <nav class="flex items-center justify-between gap-3 border-t border-stone-200 px-4 py-3" aria-label="Pagination">
+        <button id="prev" type="button" class="h-10 rounded-lg border border-stone-300 bg-white px-4 text-sm font-semibold hover:bg-stone-50 disabled:opacity-40">Précédent</button>
+        <p id="page-info" class="text-sm text-stone-700"></p>
+        <button id="next" type="button" class="h-10 rounded-lg border border-stone-300 bg-white px-4 text-sm font-semibold hover:bg-stone-50 disabled:opacity-40">Suivant</button>
+      </nav>
+    </section>
+  </main>
+</body>
+</html>

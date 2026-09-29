@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f5f5f4">
+  <title>Collecte de traductions et de voix</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="__BASE_PATH__/assets/app.css">
+  <script id="app-config" type="application/json">__CONFIG__</script>
+  <script type="module" src="__BASE_PATH__/assets/collect.js"></script>
+</head>
+<body class="min-h-screen bg-stone-100 text-stone-900 antialiased">
+  <main class="mx-auto w-full max-w-md px-4 pb-10 pt-6 sm:pt-10">
+
+    <!-- Screen A: start -->
+    <section id="screen-start" hidden>
+      <h1 class="text-2xl font-bold leading-tight text-stone-900">Collecte de traductions et de voix</h1>
+      <p class="mt-3 text-base leading-relaxed text-stone-700">
+        Merci de nous aider ! Choisissez votre langue, puis enregistrez votre voix pour chaque mot. Rien n'est obligatoire : vous pouvez vous arrêter et revenir quand vous voulez.
+      </p>
+
+      <form id="start-form" class="mt-8 space-y-7" novalidate>
+        <div>
+          <label for="email" class="block text-base font-semibold text-stone-800">Votre adresse e-mail</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required
+                 autocapitalize="off" spellcheck="false" maxlength="254"
+                 class="mt-2 block h-14 w-full rounded-xl border-2 border-stone-300 bg-white px-4 text-lg text-stone-900 outline-none focus:border-emerald-700 focus:ring-4 focus:ring-emerald-700/20">
+        </div>
+
+        <fieldset>
+          <legend class="text-base font-semibold text-stone-800">Votre langue</legend>
+          <div id="language-list" role="radiogroup" class="mt-2 space-y-3"></div>
+        </fieldset>
+
+        <button id="start-btn" type="submit" disabled
+                class="h-14 w-full rounded-xl bg-emerald-700 text-lg font-semibold text-white shadow-sm transition hover:bg-emerald-800 focus:outline-none focus:ring-4 focus:ring-emerald-700/30 disabled:cursor-not-allowed disabled:bg-stone-300 disabled:text-stone-500 disabled:shadow-none">
+          Commencer
+        </button>
+        <p id="start-status" class="min-h-6 text-base text-red-700" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- Screen B: word -->
+    <section id="screen-word" hidden>
+      <header>
+        <div class="flex items-baseline justify-between gap-3">
+          <p id="word-counter" class="text-base font-semibold text-stone-800"></p>
+          <p id="done-label" class="text-sm text-stone-600"></p>
+        </div>
+        <div class="mt-2 h-2 w-full overflow-hidden rounded-full bg-stone-200" role="progressbar" aria-label="Progression" id="progress" aria-valuemin="0">
+          <div id="progress-bar" class="h-full rounded-full bg-emerald-600 transition-all" style="width:0%"></div>
+        </div>
+      </header>
+
+      <div id="done-banner" hidden class="mt-5 rounded-xl border-2 border-emerald-700 bg-emerald-50 px-4 py-3 text-base font-semibold text-emerald-900" role="status">
+        Merci ! Vous avez terminé tous les mots.
+      </div>
+
+      <div class="mt-5 flex flex-wrap items-center justify-between gap-3">
+        <span id="category-chip" class="inline-flex items-center rounded-full bg-emerald-100 px-3 py-1 text-sm font-semibold text-emerald-900"></span>
+        <label class="flex items-center gap-2 text-sm text-stone-700">
+          <span class="sr-only sm:not-sr-only">Aller à la catégorie</span>
+          <select id="category-select" aria-label="Aller à la catégorie"
+                  class="h-12 max-w-[14rem] rounded-lg border-2 border-stone-300 bg-white px-2 text-base text-stone-900 outline-none focus:border-emerald-700">
+          </select>
+        </label>
+      </div>
+
+      <div class="mt-6 rounded-2xl bg-white px-5 py-8 shadow-sm ring-1 ring-stone-200">
+        <p id="french-text" lang="fr" class="whitespace-pre-wrap break-words text-center text-3xl font-bold leading-snug text-stone-900 sm:text-4xl"></p>
+      </div>
+      <p class="mt-3 text-center text-sm text-stone-600">Prononcez uniquement le mot ou l'expression, dans un endroit calme.</p>
+
+      <!-- Record area -->
+      <div id="record-area" class="mt-6 flex flex-col items-center gap-4">
+        <p id="record-unsupported" hidden class="rounded-xl bg-amber-50 px-4 py-3 text-base text-amber-900 ring-1 ring-amber-300">
+          Votre navigateur ne permet pas l'enregistrement audio. Vous pouvez tout de même écrire la traduction.
+        </p>
+
+        <button id="record-btn" type="button"
+                class="flex h-36 w-36 flex-col items-center justify-center rounded-full bg-emerald-700 px-4 text-center text-base font-semibold leading-tight text-white shadow-lg transition hover:bg-emerald-800 focus:outline-none focus:ring-4 focus:ring-emerald-700/30 active:scale-95">
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="mb-1 h-8 w-8 fill-current"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2Z"/></svg>
+          <span id="record-label">Appuyez pour enregistrer</span>
+        </button>
+        <p id="record-timer" hidden class="font-mono text-2xl font-semibold tabular-nums text-red-700" aria-live="off">0:00</p>
+        <p id="existing-note" hidden class="text-center text-sm text-stone-600">Un enregistrement existe déjà. Le nouveau le remplacera.</p>
+
+        <div id="local-playback" hidden class="w-full">
+          <audio id="local-audio" controls class="w-full"></audio>
+        </div>
+
+        <div id="saved-playback" hidden class="flex w-full items-center justify-center gap-3">
+          <span class="text-base font-semibold text-emerald-800">Enregistrement sauvegardé ✓</span>
+        </div>
+
+        <div id="record-actions" hidden class="flex w-full gap-3">
+          <button id="listen-btn" type="button"
+                  hidden class="h-12 flex-1 rounded-xl border-2 border-emerald-700 bg-white text-base font-semibold text-emerald-800 hover:bg-emerald-50 focus:outline-none focus:ring-4 focus:ring-emerald-700/20">
+            Écouter
+          </button>
+          <button id="rerecord-btn" type="button"
+                  class="h-12 flex-1 rounded-xl border-2 border-stone-300 bg-white text-base font-semibold text-stone-800 hover:bg-stone-50 focus:outline-none focus:ring-4 focus:ring-stone-400/30">
+            Réenregistrer
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <label for="translation" class="block text-base font-semibold text-stone-800">Traduction écrite (facultatif)</label>
+        <textarea id="translation" rows="2" spellcheck="false" autocapitalize="off" autocorrect="off" autocomplete="off"
+                  class="mt-2 block w-full resize-y rounded-xl border-2 border-stone-300 bg-white px-4 py-3 text-lg text-stone-900 outline-none focus:border-emerald-700 focus:ring-4 focus:ring-emerald-700/20"></textarea>
+      </div>
+
+      <p id="status" class="mt-4 min-h-6 text-center text-base font-medium" aria-live="polite"></p>
+
+      <div class="mt-4 flex flex-col-reverse gap-3 sm:flex-row">
+        <button id="prev-btn" type="button"
+                class="h-14 rounded-xl border-2 border-stone-300 bg-white px-6 text-lg font-semibold text-stone-800 hover:bg-stone-50 focus:outline-none focus:ring-4 focus:ring-stone-400/30 disabled:cursor-not-allowed disabled:opacity-50 sm:flex-none">
+          Précédent
+        </button>
+        <button id="next-btn" type="button"
+                class="h-14 w-full rounded-xl bg-emerald-700 px-6 text-lg font-semibold text-white shadow-sm hover:bg-emerald-800 focus:outline-none focus:ring-4 focus:ring-emerald-700/30 disabled:cursor-not-allowed disabled:opacity-60 sm:flex-1">
+          Suivant
+        </button>
+      </div>
+
+      <footer class="mt-8 flex flex-col items-center gap-4 text-base">
+        <button id="next-pending-btn" type="button" class="min-h-12 px-2 font-semibold text-emerald-800 underline underline-offset-4 hover:text-emerald-900 disabled:opacity-50">
+          Aller au prochain mot non fait
+        </button>
+        <button id="change-btn" type="button" class="min-h-12 px-2 text-stone-600 underline underline-offset-4 hover:text-stone-900 disabled:opacity-50">
+          Changer d'e-mail ou de langue
+        </button>
+        <p id="session-info" class="text-center text-sm text-stone-500"></p>
+      </footer>
+    </section>
+
+    <p id="loading" class="py-20 text-center text-stone-600">Chargement…</p>
+  </main>
+</body>
+</html>

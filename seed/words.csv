@@ -1,0 +1,364 @@
+id,category,french_text
+ASD-0001,Animaux,Singe
+ASD-0002,Animaux,Éléphant
+ASD-0003,Animaux,Oiseau
+ASD-0004,Animaux,poule
+ASD-0005,Animaux,chèvre
+ASD-0006,Animaux,Chat
+ASD-0007,Animaux,Chien
+ASD-0008,Corps,cheville
+ASD-0009,Corps,Mollet
+ASD-0010,Corps,Genou
+ASD-0011,Corps,Tibia
+ASD-0012,Corps,fesse
+ASD-0013,Corps,Nombril
+ASD-0014,Corps,Reins
+ASD-0015,Corps,Hanche
+ASD-0016,Corps,Ventre
+ASD-0017,Corps,Corps
+ASD-0018,Corps,dos
+ASD-0019,Corps,Poitrine
+ASD-0020,Corps,coude
+ASD-0021,Corps,bras
+ASD-0022,Corps,épaule
+ASD-0023,Corps,nuque
+ASD-0024,Corps,Cou
+ASD-0025,Corps,joue
+ASD-0026,Corps,front
+ASD-0027,Corps,narines
+ASD-0028,Corps,Cils
+ASD-0029,Corps,peau
+ASD-0030,Corps,cheveux
+ASD-0031,Corps,Visage
+ASD-0032,Corps,main
+ASD-0033,Corps,nez
+ASD-0034,Corps,oreille
+ASD-0035,Corps,Œil
+ASD-0036,Corps,Bouche
+ASD-0037,Corps,Tête
+ASD-0038,Couleurs,Marron
+ASD-0039,Couleurs,Ils ont des couleurs différentes
+ASD-0040,Couleurs,Ils ont la même couleur
+ASD-0041,Couleurs,C’est rouge
+ASD-0042,Couleurs,Quelle est cette couleur ?
+ASD-0043,Couleurs,L’enfant porte un chapeau jaune
+ASD-0044,Couleurs,La femme porte une robe bleue
+ASD-0045,Couleurs,Le garçon porte une chemise rouge
+ASD-0046,Couleurs,La poule est blanche
+ASD-0047,Couleurs,La chèvre est marron
+ASD-0048,Couleurs,L’oiseau est vert
+ASD-0049,Couleurs,Le ciel est bleu
+ASD-0050,Couleurs,La terre est rouge
+ASD-0051,Couleurs,La feuille est verte
+ASD-0052,Couleurs,Bleu foncé comme le safou
+ASD-0053,Couleurs,Gris comme un habit
+ASD-0054,Couleurs,Blanc comme le papier
+ASD-0055,Couleurs,Noir comme le charbon
+ASD-0056,Couleurs,Jaune comme la banane mûre
+ASD-0057,Couleurs,Rose comme la fleur
+ASD-0058,Couleurs,Violet
+ASD-0059,Couleurs,Violet comme la fleur
+ASD-0060,Couleurs,Orange comme l’orange
+ASD-0061,Couleurs,Orange comme la carotte
+ASD-0062,Couleurs,Marron comme la noix de coco
+ASD-0063,Couleurs,Marron comme le bois
+ASD-0064,Couleurs,Blanc comme les nuages
+ASD-0065,Couleurs,Gris comme l’éléphant
+ASD-0066,Couleurs,Blanc comme le lait
+ASD-0067,Couleurs,Blanc comme le riz
+ASD-0068,Couleurs,Blanc
+ASD-0069,Couleurs,Noir comme le chat
+ASD-0070,Couleurs,Noir comme la nuit
+ASD-0071,Couleurs,Bleu comme le safou
+ASD-0072,Couleurs,Bleu comme un habit
+ASD-0073,Couleurs,Jaune comme le jaune d’œuf
+ASD-0074,Couleurs,Jaune comme le soleil
+ASD-0075,Couleurs,Vert comme la banane non mûre
+ASD-0076,Couleurs,Vert comme l’herbe
+ASD-0077,Couleurs,Rouge comme l’huile rouge
+ASD-0078,Couleurs,Rouge comme le sang
+ASD-0079,Couleurs,Rose
+ASD-0080,Couleurs,Marron comme le bois
+ASD-0081,Couleurs,Violet comme l'oiseau
+ASD-0082,Couleurs,Orange
+ASD-0083,Couleurs,Gris
+ASD-0084,Couleurs,Noir
+ASD-0085,Couleurs,Bleu
+ASD-0086,Couleurs,Vert
+ASD-0087,Couleurs,Jaune
+ASD-0088,Couleurs,Rouge
+ASD-0089,Famille,Pour partager un repas.
+ASD-0090,Famille,Pourquoi êtes-vous réunis?
+ASD-0091,Famille,"Aujourd’hui, toute la famille est réunie dans la cour."
+ASD-0092,Famille,Toute la famille est réunie
+ASD-0093,Famille,Dimanche.
+ASD-0094,Famille,Quand y allez-vous ?
+ASD-0095,Famille,"Dimanche, nous allons rendre visite à grand-mère."
+ASD-0096,Famille,Nous visitons grand-mère
+ASD-0097,Famille,J’habite avec ma famille.
+ASD-0098,Famille,Avec qui habites-tu à la maison ?
+ASD-0099,Famille,Avec qui habites-tu ?
+ASD-0100,Famille,"Oui, j’ai un frère et deux sœurs."
+ASD-0101,Famille,As-tu des frères et des sœurs ?
+ASD-0102,Famille,As-tu des frères et sœurs ?
+ASD-0103,Famille,Il travaille…
+ASD-0104,Famille,Où travaille-t-il ?
+ASD-0105,Famille,Cet homme est mon père.
+ASD-0106,Famille,C’est mon père
+ASD-0107,Famille,Elle s’appelle…
+ASD-0108,Famille,Comment s’appelle-t-elle ?
+ASD-0109,Famille,Cette femme est ma mère.
+ASD-0110,Famille,C’est ma mère
+ASD-0111,Famille,C’est ma tante.
+ASD-0112,Famille,Qui est cette personne près de ta mère ?
+ASD-0113,Famille,Qui est-ce ?
+ASD-0114,Famille,Toute ma famille.
+ASD-0115,Famille,Qui vois-tu ?
+ASD-0116,Famille,Voici ma famille sur cette photo.
+ASD-0117,Famille,Voici ma famille
+ASD-0118,Famille,Non.
+ASD-0119,Famille,Sont-ils habillés pareil ?
+ASD-0120,Famille,Les jumeaux portent des chemises différentes.
+ASD-0121,Famille,Jumeaux / jumelles
+ASD-0122,Famille,Elle est l’aînée.
+ASD-0123,Famille,Quelle est sa place ?
+ASD-0124,Famille,"Dans notre famille, elle est l’aînée des enfants."
+ASD-0125,Famille,aîné(e)
+ASD-0126,Famille,Celle de maman.
+ASD-0127,Famille,La main de qui tient-elle ?
+ASD-0128,Famille,Ma petite sœur tient la main de maman.
+ASD-0129,Famille,Petite sœur
+ASD-0130,Famille,Il dort.
+ASD-0131,Famille,Que fait-il ?
+ASD-0132,Famille,Mon petit frère dort sous la moustiquaire.
+ASD-0133,Famille,Petit frère
+ASD-0134,Famille,Ma grande sœur.
+ASD-0135,Famille,Qui te coiffe ?
+ASD-0136,Famille,Ma grande sœur me coiffe avant l’école.
+ASD-0137,Famille,Grande sœur
+ASD-0138,Famille,Mon grand frère.
+ASD-0139,Famille,Qui t’aide ?
+ASD-0140,Famille,Mon grand frère m’aide à faire le devoir.
+ASD-0141,Famille,Grand frère
+ASD-0142,Famille,Au centre de santé.
+ASD-0143,Famille,Où travaille-t-elle ?
+ASD-0144,Famille,Sa femme travaille au centre de santé.
+ASD-0145,Famille,Femme / épouse
+ASD-0146,Famille,Son mari.
+ASD-0147,Famille,Qui porte le bébé ?
+ASD-0148,Famille,Son mari porte le bébé.
+ASD-0149,Famille,mari
+ASD-0150,Famille,Avec les enfants.
+ASD-0151,Famille,Avec qui chante-t-elle ?
+ASD-0152,Famille,Ma nièce chante avec les autres enfants.
+ASD-0153,Famille,Nièce
+ASD-0154,Famille,À faire du vélo.
+ASD-0155,Famille,Qu’apprend-il ?
+ASD-0156,Famille,Mon neveu apprend à faire du vélo.
+ASD-0157,Famille,Neveu
+ASD-0158,Famille,La journée.
+ASD-0159,Famille,Combien de temps reste-t-elle ?
+ASD-0160,Famille,Ma cousine vient passer la journée chez nous.
+ASD-0161,Famille,Cousine
+ASD-0162,Famille,Avec mon cousin.
+ASD-0163,Famille,Avec qui joues-tu ?
+ASD-0164,Famille,Mon cousin joue au ballon avec moi.
+ASD-0165,Famille,Cousin
+ASD-0166,Famille,Près du marché.
+ASD-0167,Famille,Où habite-t-il ?
+ASD-0168,Famille,Mon oncle habite près du marché.
+ASD-0169,Famille,Un panier de fruits.
+ASD-0170,Famille,Qu’apporte-t-elle ?
+ASD-0171,Famille,Ma tante arrive avec un panier de fruits.
+ASD-0172,Famille,tante
+ASD-0173,Famille,Sous l’arbre.
+ASD-0174,Famille,Où est grand-père ?
+ASD-0175,Famille,Grand-père se repose sous le grand arbre.
+ASD-0176,Famille,avare
+ASD-0177,Famille,Grand-mère.
+ASD-0178,Famille,Qui raconte l’histoire ?
+ASD-0179,Famille,Grand-mère raconte une histoire aux enfants.
+ASD-0180,Famille,grand-mère
+ASD-0181,Famille,Sa robe.
+ASD-0182,Famille,Que montre ta sœur ?
+ASD-0183,Famille,Ma sœur me montre sa nouvelle robe.
+ASD-0184,Famille,Sœur
+ASD-0185,Famille,Avec mon frère.
+ASD-0186,Famille,Avec qui partages-tu le cahier ?
+ASD-0187,Famille,Mon frère partage son cahier avec moi.
+ASD-0188,Famille,frère
+ASD-0189,Famille,Elle lit une histoire.
+ASD-0190,Famille,Que fait la fille ?
+ASD-0191,Famille,La fille lit une histoire à sa mère.
+ASD-0192,Famille,fille
+ASD-0193,Famille,Son fils.
+ASD-0194,Famille,Qui aide le père ?
+ASD-0195,Famille,Le fils aide son père à porter le sac.
+ASD-0196,Famille,fils
+ASD-0197,Famille,Dans la cour.
+ASD-0198,Famille,Où joue l’enfant ?
+ASD-0199,Famille,L’enfant joue dans la cour familiale.
+ASD-0200,Famille,enfant (singulier)
+ASD-0201,Famille,Mes parents.
+ASD-0202,Famille,Qui travaille aujourd’hui ?
+ASD-0203,Famille,Mes parents travaillent aujourd’hui.
+ASD-0204,Famille,Parents
+ASD-0205,Famille,Son père.
+ASD-0206,Famille,Qui accompagne l’enfant ?
+ASD-0207,Famille,Le père accompagne son enfant à l’école.
+ASD-0208,Famille,père
+ASD-0209,Famille,La mère et sa fille.
+ASD-0210,Famille,Qui prépare le repas ?
+ASD-0211,Famille,La mère prépare le repas avec sa fille.
+ASD-0212,Famille,maman
+ASD-0213,Famille,Petit-fils (petite-fille)
+ASD-0214,Famille,grands-parents paternels
+ASD-0215,Famille,grands-parents maternels
+ASD-0216,Famille,Famille nucléaire
+ASD-0217,Famille,grande famille (famille élargie)
+ASD-0218,Famille,famille
+ASD-0219,Famille,Enfant (singulier)
+ASD-0220,Famille,Père
+ASD-0221,Famille,Mère
+ASD-0222,Maison,"S’il vous plaît, peux-tu m'aider à porter ce panier si?"
+ASD-0223,Nombres,Vingt
+ASD-0224,Nombres,Dix-neuf
+ASD-0225,Nombres,Dix-huit
+ASD-0226,Nombres,Dix-sept
+ASD-0227,Nombres,Seize
+ASD-0228,Nombres,Quinze
+ASD-0229,Nombres,Quatorze
+ASD-0230,Nombres,Treize
+ASD-0231,Nombres,Douze
+ASD-0232,Nombres,Onze
+ASD-0233,Nombres,dix
+ASD-0234,Nombres,neuf
+ASD-0235,Nombres,huit
+ASD-0236,Nombres,sept
+ASD-0237,Nombres,six
+ASD-0238,Nombres,cinq
+ASD-0239,Nombres,quatre
+ASD-0240,Nombres,trois
+ASD-0241,Nombres,deux
+ASD-0242,Nombres,un
+ASD-0243,Nourriture et boissons,Riz
+ASD-0244,Nourriture et boissons,Haricot rouge
+ASD-0245,Nourriture et boissons,Haricot blanc
+ASD-0246,Nourriture et boissons,Haricot noir
+ASD-0247,Nourriture et boissons,mangue
+ASD-0248,Nourriture et boissons,maïs
+ASD-0249,Nourriture et boissons,Manger
+ASD-0250,Nourriture et boissons,eau
+ASD-0251,Nourriture et boissons,Haricot
+ASD-0252,Nourriture et boissons,Riz
+ASD-0253,Prendre des nouvelles,Le village se porte bien.
+ASD-0254,Prendre des nouvelles,Les enfants vont bien.
+ASD-0255,Prendre des nouvelles,Comment vont les enfants?
+ASD-0256,Prendre des nouvelles,Comment va ta famille ?
+ASD-0257,Prendre des nouvelles,"Comment vas-tu, maman ?"
+ASD-0258,Prendre des nouvelles,Comment vas-tu?
+ASD-0259,Prendre des nouvelles,Comment a été ta journée? (Le soir)
+ASD-0260,Prendre des nouvelles,"Oui, je vais bien."
+ASD-0261,Prendre des nouvelles,Comment tu t'appelles?
+ASD-0262,Salutations,S'il te plaît
+ASD-0263,Salutations,"Oui, nous nous reverrons."
+ASD-0264,Salutations,Nous nous reverrons.
+ASD-0265,Salutations,Bon retour.
+ASD-0266,Salutations,"Reste bien, je m’en vais."
+ASD-0267,Salutations,"Merci, restez bien."
+ASD-0268,Salutations,Bon retour à la maison.
+ASD-0269,Salutations,À demain.
+ASD-0270,Salutations,À demain à l’école.
+ASD-0271,Salutations,À bientôt.
+ASD-0272,Salutations,"Oui, à plus tard."
+ASD-0273,Salutations,À plus tard.
+ASD-0274,Salutations,Au revoir
+ASD-0275,Salutations,Au revoir.
+ASD-0276,Salutations,Je suis une fille.
+ASD-0277,Salutations,Je suis un garçon.
+ASD-0278,Salutations,"Bonjour, bienvenue"
+ASD-0279,Salutations,Voici mon ami (e)
+ASD-0280,Salutations,Nous nous appellons…
+ASD-0281,Salutations,Comment vous appelez-vous? (plusieurs personne)
+ASD-0282,Salutations,Je m’appelle Koagne Gladys.
+ASD-0283,Salutations,Comment tu t’appelles ?
+ASD-0284,Salutations,Enchanté(e).
+ASD-0285,Salutations,Je m’appelle Magne David.
+ASD-0286,Salutations,Quelles sont les nouvelles du village?
+ASD-0287,Salutations,Qu’est-ce qui ne va pas ?
+ASD-0288,Salutations,Je ne vais pas très bien aujourd’hui.
+ASD-0289,Salutations,"Moi aussi, je vais bien."
+ASD-0290,Salutations,"Merci, je vais bien. Toi également tu vas bien?"
+ASD-0291,Salutations,Ma famille va bien.
+ASD-0292,Salutations,Nous allons bien.
+ASD-0293,Salutations,Comment allez-vous? (vous: plusieurs personnes)
+ASD-0294,Salutations,"Je vais bien, mon enfant."
+ASD-0295,Salutations,Je vais bien.
+ASD-0296,Salutations,Ok.
+ASD-0297,Salutations,"Non, merci."
+ASD-0298,Salutations,J’ai compris.
+ASD-0299,Salutations,"Oui, j’accepte."
+ASD-0300,Salutations,Ce n’est pas grave / réponse naturelle.
+ASD-0301,Salutations,"Pardon, j’ai fait une erreur."
+ASD-0302,Salutations,Passez.
+ASD-0303,Salutations,"Excusez-moi, laissez-moi passer."
+ASD-0304,Salutations,Je les lui transmettrai.
+ASD-0305,Salutations,Transmets-lui mes remerciements.
+ASD-0306,Salutations,Je t’en prie
+ASD-0307,Salutations,Merci beaucoup pour ton aide.
+ASD-0308,Salutations,Merci
+ASD-0309,Salutations,Merci pour le cadeau.
+ASD-0310,Salutations,Bonne appetit.
+ASD-0311,Salutations,Merci pour le repas.
+ASD-0312,Salutations,"D’accord, allons-y."
+ASD-0313,Salutations,"S’il te plaît, accompagne-moi au marché."
+ASD-0314,Salutations,"Oui, je vais vous aider."
+ASD-0315,Salutations,"Oui, la voici."
+ASD-0316,Salutations,"S’il te plaît, donne-moi l’assiette qui est sur la table."
+ASD-0317,Salutations,"Asseyez-vous, s’il vous plaît."
+ASD-0318,Salutations,"Entrez, s’il vous plaît (à un groupe de personne). / Entrez, s’il vous plaît (à une personne d’autorité, respect)."
+ASD-0319,Salutations,"Bonjour Monsieur, soyez le bienvenu."
+ASD-0320,Salutations,Merci pour votre accueil.
+ASD-0321,Salutations,"Bienvenue, dans notre village."
+ASD-0322,Salutations,"Merci, je suis content(e) d’être ici."
+ASD-0323,Salutations,Bienvenue à la maison.
+ASD-0324,Salutations,Merci.
+ASD-0325,Salutations,Bienvenue !
+ASD-0326,Salutations,Bonne nuit à toi aussi.
+ASD-0327,Salutations,Avant le coucher: / Bonne nuit.
+ASD-0328,Salutations,La journée s’est bien passée.
+ASD-0329,Salutations,Après une longue absence: T’es-tu bien porté tout ce temps?
+ASD-0330,Salutations,"Oui, la journée se passe bien."
+ASD-0331,Salutations,Dans la journée : / As-tu bien passé la journée?
+ASD-0332,Salutations,Majesté (Salutation d'un chef supérieur ou roi)
+ASD-0333,Salutations,Bonjour tonton. / Bonjour papa. / Bonjour grand frère. / Bonjour grande soeur.
+ASD-0334,Salutations,Je salue respectueusement un aîné: / Bonjour mon enfant.
+ASD-0335,Salutations,"Oui, nous avons bien dormi."
+ASD-0336,Salutations,"Le matin, je demande à un groupe: / Avez-vous bien dormi ?"
+ASD-0337,Salutations,"Oui, j’ai bien dormi."
+ASD-0338,Salutations,"Le matin, je demande : As-tu bien dormi?"
+ASD-0339,Salutations,"Bien, et toi?"
+ASD-0340,Salutations,"Salut, comment vas-tu? (Je salue un ami proche)"
+ASD-0341,Salutations,"Je vais bien merci, et toi?"
+ASD-0342,Salutations,"Salut, comment vas-tu? (Un enfant salue un autre enfant)"
+ASD-0343,Salutations,"Merci, bonjour à toi mon enfant."
+ASD-0344,Salutations,Je vous salue (forme respectueuse envers inconnue): / Je vous salue.
+ASD-0345,Salutations,"Merci, bonjour."
+ASD-0346,Salutations,Je salue une seule personne avec insistance: Bonjour à toi.
+ASD-0347,Salutations,Bonjour / je te salue également / nous te saluons également
+ASD-0348,Salutations,Je rencontre quelqu’un : Bonjour / je te salue / je vous salue (plusieurs personne).
+ASD-0349,Salutations,Je m'appelle…
+ASD-0350,Salutations,Oui
+ASD-0351,Salutations,Merci
+ASD-0352,Salutations,Bienvenue
+ASD-0353,Salutations,Au revoir
+ASD-0354,Salutations,Bonjour
+ASD-0355,École,Jaune d’œuf de poule
+ASD-0356,École,Milieu
+ASD-0357,École,Œuf de poule
+ASD-0358,École,Bois
+ASD-0359,École,Sombre
+ASD-0360,École,Comme cela
+ASD-0361,École,Comme ceci
+ASD-0362,École,Comme ça
+ASD-0363,École,Comme
