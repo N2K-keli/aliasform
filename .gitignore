@@ -3,3 +3,6 @@ data/
 .env
 public/assets/app.css
 .idea/
+README.md
+SPEC.md
+CHECKLIST.md

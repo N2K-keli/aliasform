@@ -101,7 +101,7 @@ This writes a consistent copy of the database (SQLite online backup, safe while 
 
 ## Nginx and HTTPS (required in production)
 
-The app only serves plain HTTP. Put it behind Nginx with HTTPS: the microphone does not work without it. Minimal location block:
+The app only serves plain HTTP. Put it behind Nginx with HTTPS: the microphone does not work without it. The full setup (server block, Certbot, firewall) is in `CHECKLIST.md`. Minimal location block:
 
 ```nginx
 location / {
@@ -109,7 +109,7 @@ location / {
     proxy_set_header Host $host;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
-    client_max_body_size 12m;   # a little above MAX_AUDIO_MB
+    client_max_body_size 15m;   # a little above MAX_AUDIO_MB
 }
 ```
 
@@ -125,4 +125,3 @@ location / {
 - **Re-record on a saved word.** Pressing "Réenregistrer" on a word that already has a saved recording shows the record button again with a note. The saved recording is only replaced once a new one is recorded and saved.
 - **Leaving the session.** "Changer d'e-mail ou de langue" first tries to save pending changes. If the save fails, the user is asked to confirm before anything is dropped.
 - **Wording.** The progress label uses the singular for 0 or 1 ("1 mot complété") and the plural otherwise.
-- `CHECKLIST.md` is referenced by the spec but was not provided. The Nginx requirements are summarised above instead.
