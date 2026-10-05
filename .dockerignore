@@ -3,3 +3,4 @@ data
 .env
 .git
 public/assets/app.css
+deployedData/
