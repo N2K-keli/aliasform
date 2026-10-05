@@ -53,11 +53,22 @@ export default async function publicRoutes(app) {
     request.contributor = contributor;
   }
 
-  function progress(contributorId) {
-    return {
-      done_count: stmts.doneCount.get(contributorId).n,
-      first_pending_word_id: stmts.firstPending.get(contributorId)?.id ?? null,
-    };
+  /**
+   * Personal navigation order for a contributor: words they already answered come first
+   * (workbook order), then the words they still have to do, least recorded by others in
+   * the same language first, ties in workbook order. Computed when the session loads and
+   * kept fixed on the client, so words never move while someone is working.
+   */
+  function orderedWords(contributor) {
+    const words = stmts.allWords.all();
+    const mine = new Map(stmts.contributorResponses.all(contributor.id).map((r) => [r.word_id, r]));
+    const coverage = new Map(
+      stmts.coverageByWord.all(contributor.language, contributor.id).map((r) => [r.word_id, r.n]));
+    const done = words.filter((w) => mine.has(w.id));
+    const pending = words
+      .filter((w) => !mine.has(w.id))
+      .sort((a, b) => (coverage.get(a.id) ?? 0) - (coverage.get(b.id) ?? 0) || a.position - b.position);
+    return { words: [...done, ...pending], mine, firstPendingId: pending[0]?.id ?? null };
   }
 
   app.post('/api/session', { config: apiLimit }, async (request) => {
@@ -81,30 +92,43 @@ export default async function publicRoutes(app) {
       return { id: info.lastInsertRowid, email, language, token };
     })();
 
+    const { words, mine, firstPendingId } = orderedWords({ ...contributor, language });
     return {
       token: contributor.token,
       email,
       language,
-      total_words: stmts.allWords.all().length,
-      ...progress(contributor.id),
+      total_words: words.length,
+      done_count: mine.size,
+      first_pending_word_id: firstPendingId,
     };
   });
 
   app.get('/api/words', { config: apiLimit, onRequest: requireContributor }, async (request) => {
-    const words = stmts.allWords.all();
-    const state = new Map(stmts.contributorResponses.all(request.contributor.id).map((r) => [r.word_id, r]));
+    const { words, mine } = orderedWords(request.contributor);
 
-    const categories = [];
+    // Categories stay in workbook order. A category jump lands on its first word still
+    // to do in this contributor's order (or its first word when the category is complete).
+    const byName = new Map();
     for (const w of words) {
-      const last = categories[categories.length - 1];
-      if (last && last.name === w.category) last.count++;
-      else categories.push({ name: w.category, order: w.category_order, count: 1, first_word_id: w.id });
+      let c = byName.get(w.category);
+      if (!c) {
+        c = { name: w.category, order: w.category_order, count: 0, first_word_id: w.id, has_pending: false };
+        byName.set(w.category, c);
+      }
+      c.count++;
+      if (!c.has_pending && !mine.has(w.id)) {
+        c.first_word_id = w.id;
+        c.has_pending = true;
+      }
     }
+    const categories = [...byName.values()]
+      .sort((a, b) => a.order - b.order)
+      .map(({ has_pending, ...c }) => c);
 
     return {
       categories,
       words: words.map((w) => {
-        const r = state.get(w.id);
+        const r = mine.get(w.id);
         return {
           id: w.id,
           category: w.category,

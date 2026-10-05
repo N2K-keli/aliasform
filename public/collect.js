@@ -210,7 +210,7 @@ el.startForm.addEventListener('submit', async (e) => {
     const data = await res.json();
     state.session = { email: data.email, language: data.language, token: data.token };
     saveSession(state.session);
-    await enterWordScreen(data.first_pending_word_id);
+    await enterWordScreen();
   } catch (err) {
     el.startStatus.textContent = err instanceof ApiError && err.status < 500 && err.body?.message
       ? err.body.message
@@ -222,7 +222,7 @@ el.startForm.addEventListener('submit', async (e) => {
 
 // ---------- Screen B ----------
 
-async function enterWordScreen(firstPendingId) {
+async function enterWordScreen() {
   const res = await api('words');
   const data = await res.json();
   state.words = data.words;
@@ -240,12 +240,11 @@ async function enterWordScreen(firstPendingId) {
   el.translation.placeholder = `Écrivez la traduction en ${languageLabel(state.session.language)}`;
   el.sessionInfo.textContent = `${state.session.email} · ${languageLabel(state.session.language)}`;
 
-  const pendingId = firstPendingId !== undefined
-    ? firstPendingId
-    : state.words.find((w) => !w.has_audio && !w.has_text)?.id ?? null;
+  // The server puts this contributor's least-covered pending words right after their done ones.
+  const pendingIndex = state.words.findIndex((w) => !w.has_audio && !w.has_text);
   let banner = false;
-  if (pendingId) {
-    state.index = Math.max(0, state.words.findIndex((w) => w.id === pendingId));
+  if (pendingIndex !== -1) {
+    state.index = pendingIndex;
   } else {
     state.index = state.words.length - 1;
     banner = true;

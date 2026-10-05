@@ -66,12 +66,13 @@ export function prepareStatements(db) {
     ),
     touchContributor: db.prepare('UPDATE contributors SET last_seen_at = ? WHERE id = ?'),
 
-    doneCount: db.prepare('SELECT COUNT(*) AS n FROM responses WHERE contributor_id = ?'),
-    firstPending: db.prepare(`
-      SELECT w.id FROM words w
-      WHERE NOT EXISTS (SELECT 1 FROM responses r WHERE r.word_id = w.id AND r.contributor_id = ?)
-      ORDER BY w.position LIMIT 1`),
     contributorResponses: db.prepare('SELECT word_id, audio_path, text FROM responses WHERE contributor_id = ?'),
+    // How many other contributors of the same language already answered each word.
+    coverageByWord: db.prepare(`
+      SELECT r.word_id, COUNT(*) AS n FROM responses r
+      JOIN contributors c ON c.id = r.contributor_id
+      WHERE c.language = ? AND r.contributor_id <> ?
+      GROUP BY r.word_id`),
     getResponse: db.prepare('SELECT * FROM responses WHERE contributor_id = ? AND word_id = ?'),
     getResponseById: db.prepare(`
       SELECT r.*, c.language FROM responses r JOIN contributors c ON c.id = r.contributor_id WHERE r.id = ?`),

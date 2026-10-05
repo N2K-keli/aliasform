@@ -147,6 +147,46 @@ describe('PUT /responses/:wordId', () => {
   });
 });
 
+describe('coverage-first word order', () => {
+  let ctx;
+  before(async () => { ctx = await makeApp(); });
+  after(async () => { await ctx.cleanup(); });
+
+  const getWords = async (token) => (await ctx.app.inject({
+    url: '/collect/api/words', headers: { 'x-contributor-token': token },
+  })).json();
+
+  test('a newcomer starts on words nobody recorded yet in that language', async () => {
+    const a = await startSession(ctx.app, 'first@example.com', 'ewondo');
+    for (const id of ['ASD-0262', 'ASD-0263', 'ASD-0264']) await putResponse(ctx.app, a.token, id, { text: 'x' });
+    // Another language does not count towards Ewondo coverage.
+    const g = await startSession(ctx.app, 'other@example.com', 'ghomala');
+    await putResponse(ctx.app, g.token, 'ASD-0265', { text: 'y' });
+
+    const b = await startSession(ctx.app, 'second@example.com', 'ewondo');
+    assert.equal(b.first_pending_word_id, 'ASD-0265');
+    const { words, categories } = await getWords(b.token);
+    assert.equal(words.length, 363);
+    assert.equal(new Set(words.map((w) => w.id)).size, 363);
+    assert.equal(words[0].id, 'ASD-0265');
+    assert.deepEqual(words.slice(-3).map((w) => w.id), ['ASD-0262', 'ASD-0263', 'ASD-0264']);
+    assert.equal(categories[0].name, 'Salutations');
+    assert.equal(categories[0].first_word_id, 'ASD-0265');
+  });
+
+  test('own answers come first, then pending words by coverage', async () => {
+    const b = await startSession(ctx.app, 'second@example.com', 'ewondo');
+    await putResponse(ctx.app, b.token, 'ASD-0300', { text: 'z' });
+    const s = await startSession(ctx.app, 'second@example.com', 'ewondo');
+    assert.equal(s.done_count, 1);
+    const { words } = await getWords(b.token);
+    assert.equal(words[0].id, 'ASD-0300');
+    assert.equal(words[0].text, 'z');
+    assert.equal(words[1].id, s.first_pending_word_id);
+    assert.equal(words[1].has_text, false);
+  });
+});
+
 describe('validation', () => {
   let ctx, token;
   before(async () => {
